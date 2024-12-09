@@ -1,0 +1,24 @@
+{
+    "create": {
+        "firstname": "John",
+        "lastname": "Doe",
+        "totalprice": 150,
+        "depositpaid": true,
+        "bookingdates": {
+            "checkin": "2024-12-01",
+            "checkout": "2024-12-10"
+        },
+        "additionalneeds": "Breakfast"
+    },
+    "update": {
+        "firstname": "Shoeb",
+        "lastname": "Syed",
+        "totalprice": 200,
+        "depositpaid": false,
+        "bookingdates": {
+            "checkin": "2024-12-05",
+            "checkout": "2024-12-15"
+        },
+        "additionalneeds": "Wi-Fi"
+    }
+}

@@ -1,0 +1,21 @@
+Your flight from TLV to SFO has been reserved.
+Airline: United
+Flight Number: UA954
+Price: 400
+Arbitrary Fees and Taxes: 514.76
+Total Cost: 914.76
+Please submit the form below to purchase the flight.
+Name
+Address
+City
+State
+Zip Code
+Card Type
+                Visa
+                American Express
+                Diner's Club
+             Credit Card Number
+Month
+Year
+Name on Card
+Remember me

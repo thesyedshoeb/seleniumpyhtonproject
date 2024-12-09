@@ -1,0 +1,17 @@
+[
+  {
+    "url": "https://opensource-demo.orangehrmlive.com/",
+    "username": "Admin",
+    "password": "admin123"
+  },
+  {
+    "url": "https://opensource-demo.orangehrmlive.com/",
+    "username": "xyz",
+    "password": "xyz123"
+  },
+  {
+    "url": "https://opensource-demo.orangehrmlive.com/",
+    "username": "",
+    "password": ""
+  }
+]

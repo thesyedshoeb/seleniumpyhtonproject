@@ -1,0 +1,2 @@
+Created Booking ID: 1383
+Updated Booking Data: {'firstname': 'Shoeb', 'lastname': 'Syed', 'totalprice': 200, 'depositpaid': False, 'bookingdates': {'checkin': '2024-12-05', 'checkout': '2024-12-15'}, 'additionalneeds': 'Wi-Fi'}

@@ -1,0 +1,39 @@
+Thank you for your purchase today!
+    Id 1732789510578
+Status PendingCapture
+Amount 555 USD
+Card Number xxxxxxxxxxxx1111
+Expiration 11 /2018
+Auth Code 888888
+Date Thu, 28 Nov 2024 10:25:10 +0000
+
+{
+    "id": "1732789510578",
+    "status": "PendingCapture",
+    "amount": "555",
+    "currency": "USD",
+    "authCode": "888888",
+    "payment": {
+        "cardNumber": "xxxxxxxxxxxx1111",
+        "cardExpirationMonth": "11",
+        "cardExpirationYear": "2018"
+    },
+    "_links": {
+        "self": {
+            "href": "https=>\/\/sandbox.api.visa.com\/cybersource\/payments\/v1\/authorizations\/1732789510578",
+            "method": "GET"
+        },
+        "capture": [
+            {
+                "href": "https=>\/\/sandbox.api.visa.com\/cybersource\/payments\/v1\/authorizations\/1732789510578\/captures",
+                "method": "POST"
+            }
+        ],
+        "reversal": [
+            {
+                "href": "https=>\/\/sandbox.api.visa.com\/cybersource\/payments\/v1\/authorizations\/1732789510578\/reversals",
+                "method": "POST"
+            }
+        ]
+    }
+}
