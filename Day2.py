@@ -21,7 +21,7 @@ driver.find_element("name","password").send_keys("admin123")
 driver.find_element("xpath","//button[@type='submit']").click()
 
 '''
-#
+#changes are made
 driver.find_element("xpath","//input[@name='username']").send_keys("Admin")
 driver.find_element("xpath","//input[@name='password']").send_keys("admin123")
 driver.find_element("xpath","//button[@type='submit']").click()
