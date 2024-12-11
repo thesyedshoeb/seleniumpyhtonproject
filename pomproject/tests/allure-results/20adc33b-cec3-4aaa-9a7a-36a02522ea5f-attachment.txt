@@ -1,0 +1,3 @@
+Shopping cart
+Verify cart test completed.
+Closing the browser and quitting the driver.
