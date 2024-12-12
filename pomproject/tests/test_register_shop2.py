@@ -34,6 +34,7 @@ class TestRegisterShop:
 
     def test_login(self):
         """Test user login functionality."""
+        print("testing  jenkins run")
         login_page = LoginPage(self.driver)
         reg_page = RegistrationPage(self.driver)
         reg_page.navigate_to_registration_page("https://demowebshop.tricentis.com")
