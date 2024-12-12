@@ -72,5 +72,12 @@ pipeline {
             '''
             echo 'Job completed!'
         }
+
+        success {
+            echo "Publishing Allure report"
+            allure([
+                results: [[path: 'pomproject/tests/allure-results']]
+            ])
+        }
     }
 }
