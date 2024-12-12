@@ -1,36 +1,60 @@
 pipeline {
     agent any
-    
+
+    environment {
+        PYTHON_HOME = 'C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Python 3.12'
+        VENV_PATH = 'venv'
+        GIT_REPO_URL = 'https://github.com/pmojumder/pythonProject.git'
+        BRANCH_NAME = 'main'
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                git url: "${GIT_REPO_URL}", branch: "${BRANCH_NAME}"
             }
         }
-        stage('Install Dependencies') {
+
+        stage('Set up Virtual Environment') {
             steps {
-                bat 'pip install -r requirements.txt'
+                script {
+                    echo 'Setting up environment'
+                    if (!fileExists('venv')) {
+                        echo 'Setting up virtual environment'
+                        bat '''
+                            python -m venv venv
+                            venv\\Scripts\\activate.bat
+                            pip install --upgrade pip
+                            pip install -r requirements.txt
+                        '''
+                    }
+                    echo 'Virtual environment setup completed'
+                }
             }
         }
+
         stage('Run Tests') {
             steps {
-                bat 'pytest --alluredir=allure-results'
-            }
-        }
-        stage('Generate Allure Report') {
-            steps {
-                bat 'allure generate allure-results --clean -o allure-report'
+                script {
+                    echo 'Test execution started!'
+                    bat '''
+                        call venv\\Scripts\\activate.bat
+                        python 'Test_Folderpytest\test_new.py'
+
+                    '''
+                    echo 'Test execution completed!'
+                }
             }
         }
     }
-    
+
     post {
         always {
-            archiveArtifacts artifacts: '**/allure-report/**', allowEmptyArchive: true
-            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
-        }
-        failure {
-            mail to: 'youremail@example.com', subject: "Build Failed: ${env.JOB_NAME}", body: "Please check the Jenkins build log."
+            echo "Cleaning up"
+            bat '''
+                call venv\\Scripts\\deactivate.bat
+            '''
+            echo 'Job completed!'
         }
     }
 }
