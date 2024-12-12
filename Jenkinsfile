@@ -43,7 +43,7 @@ pipeline {
                         call ${VENV_PATH}\\Scripts\\activate.bat
                         cd pomproject\\tests\\ || exit /b 1
                         echo Current Directory: %CD%
-                        pytest test_shop_with_allure_reports.py -v --alluredir=${ALLURE_RESULTS_DIR} || exit /b 1
+                        pytest test_shop_with_allure_reports.py -v --alluredir="${env.ALLURE_RESULTS_DIR}" || exit /b 1
                     '''
                     echo 'Test execution completed!'
                 }
@@ -56,7 +56,7 @@ pipeline {
                     echo 'Generating Allure report'
                     bat '''
                         call ${VENV_PATH}\\Scripts\\activate.bat
-                        allure generate ${ALLURE_RESULTS_DIR} -o ${ALLURE_REPORT_DIR} --clean
+                        allure generate "${env.ALLURE_RESULTS_DIR}" -o "${env.ALLURE_REPORT_DIR}" --clean
                     '''
                     echo 'Allure report generated!'
                 }
