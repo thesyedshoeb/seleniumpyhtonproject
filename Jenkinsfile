@@ -4,7 +4,7 @@ pipeline {
     environment {
         PYTHON_HOME = 'C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Python 3.12'
         VENV_PATH = 'venv'
-        GIT_REPO_URL = 'https://github.com/pmojumder/pythonProject.git'
+        GIT_REPO_URL = 'https://github.com/thesyedshoeb/seleniumpyhtonproject.git'
         BRANCH_NAME = 'main'
     }
 
@@ -23,9 +23,9 @@ pipeline {
                         echo 'Setting up virtual environment'
                         bat '''
                             python -m venv venv
-                            venv\\Scripts\\activate.bat
+                            call venv\\Scripts\\activate.bat
                             pip install --upgrade pip
-                            pip install -r requirements.txt
+                            pip install -r requirement.txt
                         '''
                     }
                     echo 'Virtual environment setup completed'
@@ -39,8 +39,9 @@ pipeline {
                     echo 'Test execution started!'
                     bat '''
                         call venv\\Scripts\\activate.bat
-                        python 'Test_Folderpytest\test_new.py'
-
+                        cd pomproject\\tests\\ || exit /b 1
+                        echo Current Directory: %CD%
+                        pytest test_register_shop2.py -s || exit /b 1
                     '''
                     echo 'Test execution completed!'
                 }
@@ -52,7 +53,7 @@ pipeline {
         always {
             echo "Cleaning up"
             bat '''
-                call venv\\Scripts\\deactivate.bat
+                call venv\\Scripts\\deactivate.bat || exit /b 0
             '''
             echo 'Job completed!'
         }
